@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit converter</title>
+  <link rel="stylesheet" href="c.css">
+    <script src="c1.js" type="text/javascript">//</script>
+    <script src="c2.js" type="text/javascript">//</script>
+ 
+  </head>
+  <body>
+
+    <h1><b><u><i>Unit Converter</i></u></b></h1>
+    <p style="font-size: x-large;"><b>Select unit for conversion : </b></p>
+
+
+    <select id="grpSelect" onchange="grpSwitch()" style="width: 250px; height: 35px;border-color: red;font-size: large;border-width: 3px;">
+      <option value="grpTime">Time</option>
+      <option value="grpLength">Length</option>
+      <option value="grpTemperature">Temperature</option>
+      <option value="grpIT">IT</option>
+      <option value="grpArea">Area</option>
+      <option value="grpMass">Mass</option>
+      <option value="grpVolume">Volume</option>
+      <option value="grpSpeed">Speed</option>
+    </select>
+
+      <div id="grpTime" style="display:none;">
+        <h3>Time</h3>
+      <input type="number" value="1" min="1" id="timeamt" onkeyup="convUnits('time')">
+      From : <select id="timefr" onchange="convUnits('time')">
+        <option value="uMs">ms</option>
+        <option value="uSec">sec</option>
+        <option value="uMin">min</option>
+        <option SELECTED value="uHr">hr</option>
+        <option value="uDay">day</option>
+        <option value="uWk">wk</option>
+        <option value="uMo">mo</option>
+        <option value="uYr">yr</option>
+        <option value="uDec">dec</option>
+        <option value="uC">c</option>
+      </select>
+      To : <select id="timeto" onchange="convUnits('time')">
+        <option value="uMs">ms</option>
+        <option SELECTED value="uSec">sec</option>
+        <option value="uMin">min</option>
+        <option value="uHr">hr</option>
+        <option value="uDay">day</option>
+        <option value="uWk">wk</option>
+        <option value="uMo">mo</option>
+        <option value="uYr">yr</option>
+        <option value="uDec">dec</option>
+        <option value="uC">c</option>
+      </select>
+      <input id="timeBtn" type="button" value="convert" onclick="convUnits('time');">
+      </div>
+
+      <div id="grpLength" style="display:none;">
+        <h3>Length</h3>
+        <input type="number" value="1" min="1" id="lgthamt" onkeyup="convUnits('lgth')">
+        From : <select id="lgthfr" onchange="convUnits('lgth')">
+          <option>==Metric==</option>
+          <option value="uMm">mm</option>
+          <option value="uCm">cm</option>
+          <option value="uM">m</option>
+          <option>==Imperial==</option>
+          <option SELECTED value="uIn">in</option>
+          <option value="uFt">ft</option>
+          <option value="uYd">yd</option>
+          <option value="uMi">mi</option>
+        </select>
+        To : <select id="lgthto" onchange="convUnits('lgth')">
+          <option>==Metric==</option>
+          <option value="uMm">mm</option>
+          <option SELECTED value="uCm">cm</option>
+          <option value="uM">m</option>
+          <option>==Imperial==</option>
+          <option value="uIn">in</option>
+          <option value="uFt">ft</option>
+          <option value="uYd">yd</option>
+          <option value="uMi">mi</option>
+        </select>
+      <input id="lgthBtn" type="button" value="convert" onclick="convUnits('lgth');">
+      </div>
+
+      <div id="grpTemperature" style="display:none;">
+        <h3>Temperature</h3>
+      <input type="number" value="1" id="tmpamt" onkeyup="convTmp()">
+      From : <select id="tmpfr" onchange="convTmp()">
+        <option value="uDegc">°C</option>
+        <option SELECTED value="uDegf">°F</option>
+        <option value="uDegk">K</option>
+        <option value="uDegn">°N</option>
+      </select>
+      To : <select id="tmpto" onchange="convTmp()">
+        <option SELECTED value="uDegc">°C</option>
+        <option value="uDegf">°F</option>
+        <option value="uDegk">K</option>
+        <option value="uDegn">°N</option>
+      </select>
+      <input id="tmpBtn" type="button" value="convert" onclick="convTmp();">
+      </div>
+
+      <div id="grpIT" style="display:none;">
+        <h3>IT</h3>
+      <input type="number" value="1" min="1" id="itamt" onkeyup="convUnits('it')">
+      From : <select id="itfr" onchange="convUnits('it')">
+        <option value="uBit">bit</option>
+        <option value="uByte">byte</option>
+        <option value="uKb">KB</option>
+        <option SELECTED value="uMb">MB</option>
+        <option value="uGb">GB</option>
+        <option value="uTb">TB</option>
+      </select>
+      To : <select id="itto" onchange="convUnits('it')">
+        <option value="uBit">bit</option>
+        <option value="uByte">byte</option>
+        <option SELECTED value="uKb">KB</option>
+        <option value="uMb">MB</option>
+        <option value="uGb">GB</option>
+        <option value="uTb">TB</option>
+      </select>
+      <input id="itBtn" type="button" value="convert" onclick="convUnits('it');">
+      </div>
+
+      <div id="grpArea" style="display:none;">
+        <h3>Area</h3>
+      <input type="number" value="1" min="1" id="areaamt" onkeyup="convUnits('area')">
+      From : <select id="areafr" onchange="convUnits('area')">
+        <option>==Metric==</option>
+        <option value="uCm2">cm²</option>
+        <option value="uM2">m²</option>
+        <option value="uKm2">km²</option>
+        <option value="uHectare">hectare</option>
+        <option>==Imperial==</option>
+        <option value="uSqin">sq in</option>
+        <option SELECTED value="uSqft">sq ft</option>
+        <option value="uSqmi">sq mi</option>
+        <option value="uAcre">acre</option>
+      </select>
+      To : <select id="areato" onchange="convUnits('area')">
+        <option>==Metric==</option>
+        <option value="uCm2">cm²</option>
+        <option SELECTED value="uM2">m²</option>
+        <option value="uKm2">km²</option>
+        <option value="uHectare">hectare</option>
+        <option>==Imperial==</option>
+        <option value="uSqin">sq in</option>
+        <option value="uSqft">sq ft</option>
+        <option value="uSqmi">sq mi</option>
+        <option value="uAcre">acre</option>
+      </select>
+      <input id="areaBtn" type="button" value="convert" onclick="convUnits('area');">
+      </div>
+
+      <div id="grpMass" style="display:none;">
+        <h3>Mass</h3>
+      <input type="number" value="1" min="1" id="massamt" onkeyup="convUnits('mass')">
+      From : <select id="massfr" onchange="convUnits('mass')">
+        <option>==Metric==</option>
+        <option value="uMg">mg</option>
+        <option value="uG">g</option>
+        <option value="uKg">kg</option>
+        <option value="uTon">ton / tonne (metric ton)</option>
+        <option>==Imperial==</option>
+        <option value="uOz">oz</option>
+        <option value="uOzav">oz avoirdupois</option>
+        <option SELECTED value="uLb">lb</option>
+        <option value="uStone">stone</option>
+        <option value="uSt">short ton</option>
+      </select>
+      To : <select id="massto" onchange="convUnits('mass')">
+        <option>==Metric==</option>
+        <option value="uMg">mg</option>
+        <option value="uG">g</option>
+        <option SELECTED value="uKg">kg</option>
+        <option value="uTon">ton / tonne (metric ton)</option>
+        <option>==Imperial==</option>
+        <option value="uOz">oz</option>
+        <option value="uOzav">oz avoirdupois</option>
+        <option value="uLb">lb</option>
+        <option value="uStone">stone</option>
+        <option value="uSt">ton</option>
+      </select>
+      <input id="massBtn" type="button" value="convert" onclick="convUnits('mass');">
+      </div>
+
+      <div id="grpVolume" style="display:none;">
+        <h3>Volume</h3>
+      <input type="number" value="1" min="1" id="volamt" onkeyup="convUnits('vol')">
+      From : <select id="volfr" onchange="convUnits('vol')">
+        <option>==Metric==</option>
+        <option value="uL">litre</option>
+        <option value="uMl">millilitre</option>
+        <option value="uCc">cc</option>
+        <option value="uMm3">mm³</option>
+        <option value="uM3">m³</option>
+        <option value="uKm3">km³</option>
+        <option>==Imperial==</option>
+        <option SELECTED value="uFloz">fl oz (imp)</option>
+        <option value="uTsp">teaspoon (Can)</option>
+        <option value="uTbsp">tablespoon (Can)</option>
+        <option value="uCup">cup</option>
+        <option value="uGali">gal (imp)</option>
+        <option value="uGalu">gal (US)</option>
+        <option value="uPt">pint (imp)</option>
+        <option value="uQt">quart (imp)</option>
+        <option value="uCuin">cu in</option>
+        <option value="uCuft">cu ft</option>
+        <option value="uCumi">cu mi</option>
+      </select>
+      To : <select id="volto" onchange="convUnits('vol')">
+        <option value="uL">litre</option>
+        <option SELECTED value="uMl">millilitre</option>
+        <option value="uCc">cc</option>
+        <option value="uMm3">mm³</option>
+        <option value="uM3">m³</option>
+        <option value="uKm3">km³</option>
+        <option>==Imperial==</option>
+        <option value="uFloz">fl oz (imp)</option>
+        <option value="uTsp">teaspoon (Can)</option>
+        <option value="uTbsp">tablespoon (Can)</option>
+        <option value="uCup">cup</option>
+        <option value="uGali">gal (imp)</option>
+        <option value="uGalu">gal (US)</option>
+        <option value="uPt">pint (imp)</option>
+        <option value="uQt">quart (imp)</option>
+        <option value="uCuin">cu in</option>
+        <option value="uCuft">cu ft</option>
+        <option value="uCumi">cu mi</option>
+      </select>
+      <input id="volBtn" type="button" value="convert" onclick="convUnits('vol');">
+      </div>
+
+      <div id="grpSpeed" style="display:none;">
+        <h3>Speed</h3>
+      <input type="number" value="1" min="1" id="spdamt" onkeyup="convUnits('spd')">
+      From : <select id="spdfr" onchange="convUnits('spd')">
+        <option>==Metric==</option>
+        <option value="uMs">m/s</option>
+        <option value="uKmh">km/h</option>
+        <option>==Imperial==</option>
+        <option SELECTED value="uMph">mph</option>
+        <option value="uMpm">mpm</option>
+        <option value="uMps">mps</option>
+        <option value="uFps">fps</option>
+      </select>
+      To : <select id="spdto" onchange="convUnits('spd')">
+        <option>==Metric==</option>
+        <option value="uMs">m/s</option>
+        <option SELECTED value="uKmh">km/h</option>
+        <option>==Imperial==</option>
+        <option value="uMph">mph</option>
+        <option value="uMpm">mpm</option>
+        <option value="uMps">mps</option>
+        <option value="uFps">fps</option>
+      </select>
+      <input id="spdBtn" type="button" value="convert" onclick="convUnits('spd');">
+      </div>
+
+    <div id="result" style="display:none;">
+      <h3>Result:</h3>
+      <div id="result">&nbsp;</div>
+
+      <br>
+      <br>
+      <div id="resulttable">&nbsp;</div>
+    </div>
+
+    
+    <h2>Hi viewers this is a website for unit converter as a project during my internship with codeclause in year 2023(june-july).</h2>
+    <h4><b><u>Author : Pratyush kumar</u></b></h4>
+    <p>I'm a student at Kiit university, just completed my 2<sup>nd</sup> year in may 2023. I'm pursuing B.Tech from CSE branch and got enrolled for my first internship with Codeclause. I'll be completing my Graduation in 2025.</p>
+    <p>I hope you liked this website developed for unit conversion.</p>
+    <img src="1.png" alt="Error" style="width: 10cm;height: 6cm;">
+    <img src="img.png" alt="Error" style="height: 6cm; width: 10cm;">
+    <h5><u>In case of any query feel free to contact me on : </u></h5>
+      <p><a href="mailto: rajpratyush2003@gmail.com">Mail</a></p>
+      <p><a href="https://www.linkedin.com/in/pratyush-raj-003121233">Linkedin</a></p>
+      <p><a href="https://www.facebook.com/pratyush.raj.1253">Facebook</a></p>
+    
+  </body>
+</html>
