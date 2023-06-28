@@ -1,4 +1,4 @@
-# Project-codeclause
+# Project-unit converter
 This is a repository by me during my internship with codeclause.
 I've just completed my 2nd year in my college (Kiit University) and got a chance to have an internship with codeclause.
 I've made some wonderful projects during my internship session.
